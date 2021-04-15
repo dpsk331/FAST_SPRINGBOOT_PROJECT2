@@ -24,7 +24,7 @@ class HelloWorldControllerTest {
     void helloWorld() {
 //        System.out.println("test");
 
-//        System.out.println(helloWorldController.helloWorld());
+        System.out.println(helloWorldController.helloWorld());
 
         assertThat(helloWorldController.helloWorld()).isEqualTo("HelloWorld");
     }
@@ -37,7 +37,7 @@ class HelloWorldControllerTest {
                 MockMvcRequestBuilders.get("/api/helloWorld"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())                                // status 가 200 인지 체크!
-                .andExpect(MockMvcResultMatchers.content().string("helloWorld"));   // response의 내용이 body : helloWorld 인지 체크!
+                .andExpect(MockMvcResultMatchers.content().string("HelloWorld"));   // response의 내용이 body : helloWorld 인지 체크!
     }
 
 }
