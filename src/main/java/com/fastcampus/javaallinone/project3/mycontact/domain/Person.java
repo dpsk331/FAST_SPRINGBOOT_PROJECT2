@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
+@EqualsAndHashCode
 public class Person {
 
     @Id
@@ -28,6 +29,7 @@ public class Person {
 
     private String hobby;
 
+    @NonNull
     private String bloodType;
 
     private String address;
@@ -37,24 +39,5 @@ public class Person {
     private String job;
 
     private String phoneNumber;
-
-    public boolean equals(Object object){
-        if (object == null) {
-            return false;
-        }
-
-        Person person= (Person)object;
-
-        if (!person.getName().equals(this.getName())) {
-            return false;
-        }
-
-        if (person.getAge() != this.getAge()) {
-            return false;
-        }
-
-        return true;
-    }
-
 
 }
