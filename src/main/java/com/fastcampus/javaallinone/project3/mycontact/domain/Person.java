@@ -1,8 +1,6 @@
 package com.fastcampus.javaallinone.project3.mycontact.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,14 +11,19 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString(exclude = "phoneNumber")
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class Person {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @NonNull
     private String name;
 
+    @NonNull
     private int age;
 
     private String hobby;
@@ -34,5 +37,24 @@ public class Person {
     private String job;
 
     private String phoneNumber;
+
+    public boolean equals(Object object){
+        if (object == null) {
+            return false;
+        }
+
+        Person person= (Person)object;
+
+        if (!person.getName().equals(this.getName())) {
+            return false;
+        }
+
+        if (person.getAge() != this.getAge()) {
+            return false;
+        }
+
+        return true;
+    }
+
 
 }

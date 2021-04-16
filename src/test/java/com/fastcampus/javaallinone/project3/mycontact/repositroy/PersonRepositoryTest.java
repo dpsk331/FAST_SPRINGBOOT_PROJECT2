@@ -34,4 +34,14 @@ class PersonRepositoryTest {
         assertThat(people.get(0).getBloodType()).isEqualTo("A");
     }
 
+    @Test
+    void hashCodeAndEquals() {
+        Person person1 = new Person("martin",10);
+        Person person2 = new Person("martin", 10);
+
+        System.out.println(person1.equals(person2));
+        System.out.println(person1.hashCode());
+        System.out.println(person2.hashCode());
+    }
+
 }
