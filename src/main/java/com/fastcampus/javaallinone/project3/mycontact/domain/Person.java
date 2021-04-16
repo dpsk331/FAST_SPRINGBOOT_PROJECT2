@@ -8,13 +8,10 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
-@ToString(exclude = "phoneNumber")
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
-@EqualsAndHashCode
+@Data
 public class Person {
 
     @Id
@@ -38,6 +35,7 @@ public class Person {
 
     private String job;
 
+    @ToString.Exclude
     private String phoneNumber;
 
 }
