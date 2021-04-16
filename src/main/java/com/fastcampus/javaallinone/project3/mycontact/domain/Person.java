@@ -1,13 +1,18 @@
 package com.fastcampus.javaallinone.project3.mycontact.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
-@Data
 @Entity
+@Getter
+@Setter
+@ToString(exclude = "phoneNumber")
 public class Person {
 
     @Id
@@ -18,12 +23,16 @@ public class Person {
 
     private int age;
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
+    private String hobby;
+
+    private String bloodType;
+
+    private String address;
+
+    private LocalDate birthday;
+
+    private String job;
+
+    private String phoneNumber;
+
 }
