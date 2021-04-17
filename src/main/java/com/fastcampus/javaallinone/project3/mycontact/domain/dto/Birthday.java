@@ -13,15 +13,15 @@ import java.time.LocalDate;
 @Data
 public class Birthday {
 
-    private int yearOfBirthday;
+    private Integer yearOfBirthday;
 
     @Min(1)
     @Max(12)
-    private int monthOfBirthday;
+    private Integer monthOfBirthday;
 
     @Min(1)
     @Max(31)
-    private int dayOfBirthday;
+    private Integer dayOfBirthday;
 
     // 월별 일수 제한
     public Birthday(LocalDate birthday) {
