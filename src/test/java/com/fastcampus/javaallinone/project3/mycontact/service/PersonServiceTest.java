@@ -16,10 +16,8 @@ class PersonServiceTest {
 
     @Autowired
     private PersonService personService;
-
     @Autowired
     private PersonRepository personRepository;
-
     @Autowired
     private BlockRepository blockRepository;
 

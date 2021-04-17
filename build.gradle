@@ -18,7 +18,6 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -32,8 +31,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     // Junit 5 Test를 실행하기 위한 필수 로직
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.2"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.4.4'
 }
 
 test {
