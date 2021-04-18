@@ -4,6 +4,8 @@ import com.fastcampus.javaallinone.project3.mycontact.controller.dto.PersonDto;
 import com.fastcampus.javaallinone.project3.mycontact.domain.dto.Birthday;
 import lombok.*;
 import org.h2.util.StringUtils;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -14,6 +16,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Where(clause = "deleted = false")
 public class Person {
 
     @Id
@@ -50,6 +53,9 @@ public class Person {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private Block block;
+
+    @ColumnDefault("0")
+    private boolean deleted;
 
     public void set(PersonDto personDto) {
         if (personDto.getAge() != 0) {
