@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Slf4j
@@ -32,6 +31,11 @@ public class PersonService {
         log.info("person : {}", person);
 
         return person;
+    }
+
+    @Transactional
+    public void put(Person person) {
+        personRepository.save(person);
     }
 
 }

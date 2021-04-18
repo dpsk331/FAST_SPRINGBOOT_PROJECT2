@@ -1,22 +1,34 @@
 package com.fastcampus.javaallinone.project3.mycontact.controller;
 
 import com.fastcampus.javaallinone.project3.mycontact.domain.Person;
+import com.fastcampus.javaallinone.project3.mycontact.repositroy.PersonRepository;
 import com.fastcampus.javaallinone.project3.mycontact.service.PersonService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping(value = "/api/person")
 public class PersonController {
 
     @Autowired
     private PersonService personService;
+    @Autowired
+    private PersonRepository personRepository;
 
-    // ▼ 아래의 애노테이션으로 치환 : @RequestMapping(method = RequestMethod.GET)
-    @GetMapping
-    @RequestMapping(value = "/{id}")
+    @GetMapping("/{id}")
     public Person getPerson(@PathVariable Long id) {
         return personService.getPerson(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void postPerson(@RequestBody Person person) {
+        personService.put(person);
+
+        log.info("person -> {}", personRepository.findAll());
     }
 
 }
