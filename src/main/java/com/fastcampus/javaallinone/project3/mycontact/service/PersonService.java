@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -26,7 +27,8 @@ public class PersonService {
 
     @Transactional(readOnly = true)
     public Person getPerson(Long id) {
-        Person person = personRepository.findById(id).get();
+        Person person = personRepository.findById(id).orElse(null);
+
         log.info("person : {}", person);
 
         return person;
