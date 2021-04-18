@@ -52,4 +52,5 @@ class PersonRepositoryTest {
         assertThat(result.get(0).getName()).isEqualTo("martin");
         assertThat(result.get(1).getName()).isEqualTo("sophia");
     }
+
 }
