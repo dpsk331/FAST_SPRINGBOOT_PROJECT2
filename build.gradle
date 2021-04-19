@@ -41,6 +41,9 @@ dependencies {
     // @Valid
     implementation 'org.springframework.boot:spring-boot-starter-validation:2.4.5'
 
+    // Mock
+    implementation 'org.mockito:mockito-junit-jupiter'
+
 }
 
 test {
