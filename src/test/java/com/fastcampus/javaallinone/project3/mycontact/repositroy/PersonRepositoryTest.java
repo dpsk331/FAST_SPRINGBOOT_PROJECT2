@@ -58,6 +58,17 @@ class PersonRepositoryTest {
     }
 
     @Test
+    void findByMonthOfBirthdayAndDayOfBirthday() {
+        List<Person> people = personRepository.findByMonthOfBirthdayAndDayOfBirthday(LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
+
+        assertThat(people.size()).isEqualTo(2);
+
+        assertThat(people.get(0).getName()).isEqualTo("java");
+        assertThat(people.get(1).getName()).isEqualTo("cpp");
+
+    }
+
+    @Test
     void findPeopleDeleted() {
         List<Person> people = personRepository.findPeopleDeleted();
 

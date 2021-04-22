@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -29,6 +30,11 @@ public class PersonController {
     @GetMapping("/{id}")
     public Person getPerson(@PathVariable Long id) {
         return personService.getPerson(id);
+    }
+
+    @GetMapping("/birthday-friends")
+    public List<Person> getBirthdayPerson() {
+        return personService.getBirthdayPerson();
     }
 
     @PostMapping

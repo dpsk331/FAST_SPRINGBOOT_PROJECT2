@@ -69,6 +69,17 @@ class PersonServiceTest {
     }
 
     @Test
+    void getBirthdayPerson(){
+        when(personRepository.findByMonthOfBirthdayAndDayOfBirthday(LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth()))
+                .thenReturn(Lists.newArrayList(new Person("java")));
+
+        List<Person> result = personService.getBirthdayPerson();
+
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(0).getName()).isEqualTo("java");
+    }
+
+    @Test
     void getPersonIfNotFound() {
         when(personRepository.findById(1L))
                 .thenReturn(Optional.empty());

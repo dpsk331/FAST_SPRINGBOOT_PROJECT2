@@ -58,8 +58,8 @@ class PersonControllerTest {
                         .param("page", "1")
                         .param("size", "2"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.totalPages").value(3))
-                .andExpect(jsonPath("$.totalElements").value(6))
+                .andExpect(jsonPath("$.totalPages").value(4))
+                .andExpect(jsonPath("$.totalElements").value(7))
                 .andExpect(jsonPath("$.numberOfElements").value(2))
                 .andExpect(jsonPath("$.content.[0].name").value("dennis"))
                 .andExpect(jsonPath("$.content.[1].name").value("sophia"));
@@ -78,6 +78,14 @@ class PersonControllerTest {
                 .andExpect(jsonPath("$.deleted").value(false))
                 .andExpect(jsonPath("$.age").isNumber())
                 .andExpect(jsonPath("$.birthdayToday").isBoolean());
+    }
+
+    @Test
+    void getBirthdayPerson() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.get("/api/person/birthday-friends"))
+                .andExpect(status().isOk());
+
     }
 
     @Test
