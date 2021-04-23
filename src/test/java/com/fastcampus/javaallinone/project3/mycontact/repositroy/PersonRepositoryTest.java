@@ -59,7 +59,7 @@ class PersonRepositoryTest {
 
     @Test
     void findByMonthOfBirthdayAndDayOfBirthday() {
-        List<Person> people = personRepository.findByMonthOfBirthdayAndDayOfBirthday(LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
+        List<Person> people = personRepository.findByMonthOfBirthdayAndDayOfBirthday(4, 22);
 
         assertThat(people.size()).isEqualTo(2);
 

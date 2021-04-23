@@ -13,7 +13,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
     @Query(value = "select person from Person person where person.birthday.monthOfBirthday = :monthOfBirthday")
     List<Person> findByMonthOfBirthday(@Param("monthOfBirthday") int monthOfBirthday);
 
-    @Query(value = "select person from Person person where (person.birthday.monthOfBirthday = :monthOfBirthday and person.birthday.dayOfBirthday = :dayOfBirthday) or (person.birthday.monthOfBirthday = :monthOfBirthday+1 and person.birthday.dayOfBirthday = :dayOfBirthday+1)")
+    @Query(value = "select person from Person person where person.birthday.monthOfBirthday = :monthOfBirthday and (person.birthday.dayOfBirthday = :dayOfBirthday or person.birthday.dayOfBirthday = :dayOfBirthday+1)")
     List<Person> findByMonthOfBirthdayAndDayOfBirthday(@Param("monthOfBirthday") int monthOfBirthday, @Param("dayOfBirthday") int dayOfBirthday);
 
     @Query(value = "select * from Person person where person.deleted = true", nativeQuery = true)
